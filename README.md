@@ -286,3 +286,10 @@ The PHPUnit suite is the module unit suite in `Test/Unit`. It does not start Mag
 - Image URLs depend on the frontend view config for `product_base_image`.
 - Guest catalog prices are used. Logged-in customer-group catalog rules are not selected.
 - Case-insensitive SKU resolution uses `LOWER(sku)` together with `mb_strtolower(..., 'UTF-8')`. Those two folds can differ for some non-ASCII characters.
+
+## Operation guides
+
+Admin and API steps, with the screenshots embedded in each document:
+
+- [Function Traning Guid Chinese.docx](Function%20Traning%20Guid%20Chinese.docx)
+- [Function Traning Guid English.docx](Function%20Traning%20Guid%20English.docx)
