@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Itc Promotion Module
+ *
+ * @category    Itc
+ * @package     Itc_Promotion
+ * @author      Jason Zhuo
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">itc_promotion_listing.itc_promotion_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add Product</label>
+            </button>
+        </buttons>
+        <spinner>itc_promotion_columns</spinner>
+        <deps>
+            <dep>itc_promotion_listing.itc_promotion_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="itc_promotion_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">entity_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Itc_Promotion::manage</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="itc_promotion_listing_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="itc_promotion_columns">
+        <column name="entity_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="sku">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">SKU</label>
+            </settings>
+        </column>
+        <column name="product_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Product ID</label>
+            </settings>
+        </column>
+        <column name="name" class="Itc\Promotion\Ui\Component\Listing\Column\ProductName">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Product Name</label>
+                <bodyTmpl>ui/grid/cells/html</bodyTmpl>
+            </settings>
+        </column>
+        <column name="price" class="Magento\Catalog\Ui\Component\Listing\Columns\Price">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Price</label>
+            </settings>
+        </column>
+        <column name="special_price" class="Magento\Catalog\Ui\Component\Listing\Columns\Price">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Special Price</label>
+            </settings>
+        </column>
+        <column name="status" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="Magento\Catalog\Model\Product\Attribute\Source\Status"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+        <column name="stock_status" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="Itc\Promotion\Ui\Component\Listing\Option\StockStatus"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Stock Status</label>
+            </settings>
+        </column>
+        <column name="position" component="Itc_Promotion/js/grid/columns/position">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="updateUrl" xsi:type="url" path="itc_promotion/promotion/move"/>
+                </item>
+            </argument>
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Position</label>
+                <bodyTmpl>Itc_Promotion/grid/cells/position</bodyTmpl>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="updated_at">
+            <settings>
+                <filter>dateRange</filter>
+                <label translate="true">Updated</label>
+                <dataType>date</dataType>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Itc\Promotion\Ui\Component\Listing\Column\PromotionActions">
+            <settings>
+                <indexField>sku</indexField>
+                <label translate="true">Actions</label>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

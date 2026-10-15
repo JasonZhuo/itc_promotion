@@ -1,0 +1,20 @@
+<div class="itc-promotion-position data-grid-cell-content">
+    <!-- ko if: $col.isEditing($row()) -->
+    <input class="admin__control-text itc-promotion-position__input"
+           type="text"
+           inputmode="numeric"
+           autocomplete="off"
+           data-bind="attr: { value: $row().position }, event: { keyup: function (data, event) { return $col.onKey($row(), event); } }"/>
+    <button type="button"
+            class="action-default scalable itc-promotion-position__update"
+            data-bind="click: function (data, event) { $col.update($row(), event); }, disable: $col.updating">
+        <span data-bind="i18n: 'Update'"></span>
+    </button>
+    <div class="itc-promotion-position__error" data-bind="visible: $col.error, text: $col.error"></div>
+    <!-- /ko -->
+    <!-- ko ifnot: $col.isEditing($row()) -->
+    <button type="button"
+            class="itc-promotion-position__value"
+            data-bind="click: function () { $col.startEdit($row()); }, text: $row().position"></button>
+    <!-- /ko -->
+</div>

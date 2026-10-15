@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Itc Promotion Module
+ *
+ * @category    Itc
+ * @package     Itc_Promotion
+ * @author      Jason Zhuo
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Itc_Promotion::itc"
+             title="ITC"
+             translate="title"
+             module="Itc_Promotion"
+             sortOrder="90"
+             parent="Magento_Backend::marketing"
+             resource="Itc_Promotion::manage"/>
+        <add id="Itc_Promotion::promotion"
+             title="Promotion Products"
+             translate="title"
+             module="Itc_Promotion"
+             sortOrder="10"
+             parent="Itc_Promotion::itc"
+             action="itc_promotion/promotion/index"
+             resource="Itc_Promotion::manage"/>
+    </menu>
+</config>

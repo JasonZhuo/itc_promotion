@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Itc Promotion Module
+ *
+ * @category    Itc
+ * @package     Itc_Promotion
+ * @author      Jason Zhuo
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="itc_promotion_promotion_new"/>
+</page>

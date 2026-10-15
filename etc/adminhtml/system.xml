@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Itc Promotion Module
+ *
+ * @category    Itc
+ * @package     Itc_Promotion
+ * @author      Jason Zhuo
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="itc" translate="label" sortOrder="400">
+            <label>ITC</label>
+        </tab>
+        <section id="itc_promotion" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Promotion</label>
+            <tab>itc</tab>
+            <resource>Itc_Promotion::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Promotion Service</label>
+                    <comment>When disabled, the public API returns an empty list and updates are rejected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

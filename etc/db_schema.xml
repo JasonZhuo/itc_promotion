@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Itc Promotion Module
+ *
+ * @category    Itc
+ * @package     Itc_Promotion
+ * @author      Jason Zhuo
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/etc/schema.xsd">
+    <table name="itc_promotion_item" resource="default" engine="innodb" comment="ITC Promotion Items">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="sku" nullable="false" length="64" comment="Product SKU"/>
+        <column xsi:type="smallint" name="position" unsigned="true" nullable="false" default="0" comment="Zero-based display order"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="ITC_PROMOTION_ITEM_SKU_UNQ">
+            <column name="sku"/>
+        </constraint>
+        <index referenceId="ITC_PROMOTION_ITEM_POSITION" indexType="btree">
+            <column name="position"/>
+        </index>
+    </table>
+</schema>

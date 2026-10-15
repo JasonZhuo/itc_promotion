@@ -1,0 +1,24 @@
+.itc-promotion-position__value {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: #007bdb;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: underline;
+}
+
+.itc-promotion-position__input {
+    width: 4.5rem;
+    margin-right: 0.6rem;
+    vertical-align: middle;
+}
+
+.itc-promotion-position__update {
+    vertical-align: middle;
+}
+
+.itc-promotion-position__error {
+    color: #e22626;
+    margin-top: 0.4rem;
+}

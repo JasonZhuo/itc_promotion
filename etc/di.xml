@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Itc Promotion Module
+ *
+ * @category    Itc
+ * @package     Itc_Promotion
+ * @author      Jason Zhuo
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Itc\Promotion\Api\PromotionManagementInterface" type="Itc\Promotion\Model\PromotionManagement"/>
+    <preference for="Itc\Promotion\Api\PromotionProductRepositoryInterface" type="Itc\Promotion\Model\PromotionProductRepository"/>
+    <preference for="Itc\Promotion\Api\Data\StorefrontProductInterface" type="Itc\Promotion\Model\StorefrontProduct"/>
+    <preference for="Itc\Promotion\Api\Data\StorefrontProductListInterface" type="Itc\Promotion\Model\StorefrontProductList"/>
+    <preference for="Itc\Promotion\Api\Data\ReplaceResultInterface" type="Itc\Promotion\Model\ReplaceResult"/>
+    <type name="Itc\Promotion\Ui\Component\Form\DataProvider">
+        <arguments>
+            <argument name="name" xsi:type="string">itc_promotion_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">sku</argument>
+            <argument name="requestFieldName" xsi:type="string">sku</argument>
+        </arguments>
+    </type>
+</config>

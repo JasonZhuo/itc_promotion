@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Itc Promotion Module
+ *
+ * @category    Itc
+ * @package     Itc_Promotion
+ * @author      Jason Zhuo
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">itc_promotion_form.itc_promotion_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Promotion Product</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="Itc\Promotion\Block\Adminhtml\Promotion\BackButton"/>
+            <button name="save" class="Itc\Promotion\Block\Adminhtml\Promotion\SaveButton"/>
+        </buttons>
+        <namespace>itc_promotion_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>itc_promotion_form.itc_promotion_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="itc_promotion_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="itc_promotion/promotion/save"/>
+        </settings>
+        <dataProvider class="Itc\Promotion\Ui\Component\Form\DataProvider" name="itc_promotion_form_data_source">
+            <settings>
+                <requestFieldName>sku</requestFieldName>
+                <primaryFieldName>sku</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label translate="true">Promotion Product</label>
+        </settings>
+        <field name="sku" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">SKU</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <notice translate="true">Up to 5 product SKUs, separated by commas. Example: 24-MB01, 24-MB04, 24-MB03. On edit, enter one SKU to replace the current product. The list is shared with the integration API and holds at most 5 products.</notice>
+            </settings>
+        </field>
+        <field name="position" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Position</label>
+                <notice translate="true">Optional zero-based positions in the same order as the SKUs, separated by commas. Example: 0, 1, 2. Leave empty to append. On edit, enter one position or leave it empty to keep the current place.</notice>
+            </settings>
+        </field>
+        <field name="original_sku" formElement="hidden">
+            <settings>
+                <dataType>text</dataType>
+            </settings>
+        </field>
+    </fieldset>
+</form>

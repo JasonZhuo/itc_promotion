@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Itc Promotion Module
+ *
+ * @category    Itc
+ * @package     Itc_Promotion
+ * @author      Jason Zhuo
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/promotions/products" method="GET">
+        <service class="Itc\Promotion\Api\PromotionManagementInterface" method="getStorefrontProducts"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/promotions/products" method="PUT">
+        <service class="Itc\Promotion\Api\PromotionManagementInterface" method="replaceBySkus"/>
+        <resources>
+            <resource ref="Itc_Promotion::update"/>
+        </resources>
+    </route>
+</routes>

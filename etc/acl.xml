@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Itc Promotion Module
+ *
+ * @category    Itc
+ * @package     Itc_Promotion
+ * @author      Jason Zhuo
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Itc_Promotion::promotion" title="ITC Promotion" sortOrder="80">
+                    <resource id="Itc_Promotion::config" title="Promotion Configuration" sortOrder="10"/>
+                    <resource id="Itc_Promotion::manage" title="Manage Promotion Products" sortOrder="20"/>
+                    <resource id="Itc_Promotion::update" title="Replace Promotion List via API" sortOrder="30"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

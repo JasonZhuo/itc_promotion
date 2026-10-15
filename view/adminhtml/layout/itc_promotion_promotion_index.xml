@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Itc Promotion Module
+ *
+ * @category    Itc
+ * @package     Itc_Promotion
+ * @author      Jason Zhuo
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Itc_Promotion::css/position.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="itc_promotion_listing"/>
+        </referenceContainer>
+    </body>
+</page>
